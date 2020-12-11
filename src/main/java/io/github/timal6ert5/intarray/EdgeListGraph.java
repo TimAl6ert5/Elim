@@ -95,6 +95,9 @@ public class EdgeListGraph extends AbstractIntArrayGraph {
 		return false;
 	}
 
+	/**
+	 * Multiple edges in an edge list can be identifed by more than one edge (u,v) or (v,u).
+	 */
 	@Override
 	public boolean hasMultipleEdges() {
 		EdgeEntry edge, edgeR;
@@ -111,4 +114,14 @@ public class EdgeListGraph extends AbstractIntArrayGraph {
 		return false;
 	}
 
+	/**
+	 * 
+	 */
+	@Override
+	public boolean isConnected() {
+		if (!isSimple()) {
+			return false;
+		}
+		return getGraphSize() == nCr(getGraphOrder(), 2);
+	}
 }

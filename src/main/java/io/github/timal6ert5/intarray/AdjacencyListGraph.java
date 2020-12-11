@@ -93,4 +93,25 @@ public class AdjacencyListGraph extends AbstractIntArrayGraph {
 		return false;
 	}
 
+	/**
+	 * Connected graph in adjaceny list has 'order - 1' elements in each list,
+	 * and is simple.
+	 * 
+	 * This implementation is grossly inefficient, but should be accurate.
+	 * TODO: refactor to a single pass
+	 */
+	@Override
+	public boolean isConnected() {
+		if (!isSimple()) {
+			return false;
+		}
+		// each row in the adjacency list must be size order - 1
+		int order_m1 = getGraphOrder() - 1;
+		for (int i = 0; i < graph.length; i++) {
+			if (graph[i].length != order_m1) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

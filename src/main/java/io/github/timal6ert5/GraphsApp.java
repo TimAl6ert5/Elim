@@ -83,6 +83,7 @@ public class GraphsApp {
 		buf.append("Has Loops: ").append(graphDetails.hasLoops()).append("\n");
 		buf.append("Has Multiple Edges: ").append(graphDetails.hasMultipleEdges()).append("\n");
 		buf.append("Simple: ").append(graphDetails.isSimple()).append("\n");
+		buf.append("Complete: " ).append(graphDetails.isConnected()).append("\n");
 
 		System.out.println(buf.toString());
 	}
