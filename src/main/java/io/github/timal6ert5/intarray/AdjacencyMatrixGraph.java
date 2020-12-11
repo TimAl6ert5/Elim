@@ -104,8 +104,8 @@ public class AdjacencyMatrixGraph extends AbstractIntArrayGraph {
 	}
 
 	/**
-	 * A connected graph in an adjacency matrix is identified by all 1 values
-	 * in the matrix, except for all 0 values on the diagonal.
+	 * A connected graph in an adjacency matrix is identified by all 1 values in the
+	 * matrix, except for all 0 values on the diagonal.
 	 */
 	@Override
 	public boolean isConnected() {
@@ -123,5 +123,10 @@ public class AdjacencyMatrixGraph extends AbstractIntArrayGraph {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return getGraphSize() == 0;
 	}
 }

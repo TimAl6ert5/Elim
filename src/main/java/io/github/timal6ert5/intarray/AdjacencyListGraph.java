@@ -94,11 +94,11 @@ public class AdjacencyListGraph extends AbstractIntArrayGraph {
 	}
 
 	/**
-	 * Connected graph in adjaceny list has 'order - 1' elements in each list,
-	 * and is simple.
+	 * Connected graph in adjaceny list has 'order - 1' elements in each list, and
+	 * is simple.
 	 * 
-	 * This implementation is grossly inefficient, but should be accurate.
-	 * TODO: refactor to a single pass
+	 * This implementation is grossly inefficient, but should be accurate. TODO:
+	 * refactor to a single pass
 	 */
 	@Override
 	public boolean isConnected() {
@@ -113,5 +113,10 @@ public class AdjacencyListGraph extends AbstractIntArrayGraph {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return getGraphSize() == 0;
 	}
 }

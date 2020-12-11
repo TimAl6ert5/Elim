@@ -11,9 +11,8 @@ public class EdgeListGraphTest extends AbstractIntArrayGraphTest {
 	@DataProvider(name = "hasLoopsData")
 	public static Object[][] hasLoopsData() {
 		return new Object[][] { { "edgelist/test_hasloops.json", true }, { "edgelist/konigsberg.json", false },
-				{ "edgelist/khanacademy.json", false },
-				{ "edgelist/Herke03a.json", false},
-				{ "edgelist/connected_k4.json", false} };
+				{ "edgelist/khanacademy.json", false }, { "edgelist/Herke03a.json", false },
+				{ "edgelist/connected_k4.json", false } };
 	}
 
 	@Test(dataProvider = "hasLoopsData")
@@ -26,8 +25,7 @@ public class EdgeListGraphTest extends AbstractIntArrayGraphTest {
 	@DataProvider(name = "orderAndSizeData")
 	public static Object[][] orderAndSizeData() {
 		return new Object[][] { { "edgelist/konigsberg.json", 4, 7 }, { "edgelist/khanacademy.json", 10, 15 },
-			{ "edgelist/Herke03a.json", 5, 5 },
-			{ "edgelist/connected_k4.json", 4, 6} };
+				{ "edgelist/Herke03a.json", 5, 5 }, { "edgelist/connected_k4.json", 4, 6 } };
 	}
 
 	@Test(dataProvider = "orderAndSizeData")
@@ -43,8 +41,7 @@ public class EdgeListGraphTest extends AbstractIntArrayGraphTest {
 	@DataProvider(name = "hasMultipleEdgesData")
 	public static Object[][] hasMultipleEdgesData() {
 		return new Object[][] { { "edgelist/konigsberg.json", true }, { "edgelist/khanacademy.json", false },
-			{ "edgelist/Herke03a.json", false},
-			{ "edgelist/connected_k4.json", false} };
+				{ "edgelist/Herke03a.json", false }, { "edgelist/connected_k4.json", false } };
 	}
 
 	@Test(dataProvider = "hasMultipleEdgesData")
@@ -58,8 +55,7 @@ public class EdgeListGraphTest extends AbstractIntArrayGraphTest {
 	@DataProvider(name = "isSimpleData")
 	public static Object[][] isSimpleData() {
 		return new Object[][] { { "edgelist/konigsberg.json", false }, { "edgelist/khanacademy.json", true },
-			{ "edgelist/Herke03a.json", true},
-			{ "edgelist/connected_k4.json", true}};
+				{ "edgelist/Herke03a.json", true }, { "edgelist/connected_k4.json", true } };
 	}
 
 	@Test(dataProvider = "isSimpleData")
@@ -72,18 +68,28 @@ public class EdgeListGraphTest extends AbstractIntArrayGraphTest {
 
 	@DataProvider(name = "isConnectedData")
 	public static Object[][] isConnectedData() {
-		return new Object[][] { 
-			{ "edgelist/konigsberg.json", false }, 
-			{ "edgelist/khanacademy.json", false },
-			{ "edgelist/Herke03a.json", false},
-			{ "edgelist/connected_k4.json", true}
-		};
+		return new Object[][] { { "edgelist/konigsberg.json", false }, { "edgelist/khanacademy.json", false },
+				{ "edgelist/Herke03a.json", false }, { "edgelist/connected_k4.json", true } };
 	}
 
 	@Test(dataProvider = "isConnectedData")
 	public void testIsConnected(String graphFile, boolean expectedIsSimple) throws IOException {
 		EdgeListGraph testGraph = new EdgeListGraph(loadGraphFromResource(graphFile));
 		boolean actualIsSimple = testGraph.isConnected();
+
+		Assert.assertEquals(actualIsSimple, expectedIsSimple);
+	}
+
+	@DataProvider(name = "isEmptyData")
+	public static Object[][] isEmptyData() {
+		return new Object[][] { { "edgelist/konigsberg.json", false }, { "edgelist/khanacademy.json", false },
+				{ "edgelist/Herke03a.json", false }, { "edgelist/connected_k4.json", false } };
+	}
+
+	@Test(dataProvider = "isEmptyData")
+	public void testIsEmpty(String graphFile, boolean expectedIsSimple) throws IOException {
+		EdgeListGraph testGraph = new EdgeListGraph(loadGraphFromResource(graphFile));
+		boolean actualIsSimple = testGraph.isEmpty();
 
 		Assert.assertEquals(actualIsSimple, expectedIsSimple);
 	}

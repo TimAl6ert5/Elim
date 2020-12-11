@@ -62,7 +62,7 @@ Notes:
 - A loop (node connected to itself), can be represented as [0, 0] for example
 - Multiple edges can be represented by duplicate entries (as above).
 - Directed interprets the order of the pair as one direction.
-- Cannot represent a disconnected graph with an isolated vertex.  Similarly, cannot represent a k1 connected graph.
+- Cannot represent a disconnected graph with an isolated vertex, a k1 connected graph, or an empty graph.
 
 ### Adjacency Matrices
 Four vertices represented by 4x4 matrix. Entries are typically 0 (not connected) or 1 (connected).
