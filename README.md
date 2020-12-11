@@ -45,6 +45,7 @@ Graph variations:
 ### Edge Lists
 Four vertices indexed 0-4 with 7 edges.
 
+```
 [
     [0, 1],
     [0, 1],
@@ -54,6 +55,7 @@ Four vertices indexed 0-4 with 7 edges.
     [1, 3],
     [2, 3]
 ]
+```
 
 Notes:
 - A weighted version would have a third element to the array.
@@ -68,12 +70,14 @@ A weighted graph may include the weight value for connected, or null for not con
 Undirected graph would be symmetric
 Directed graph need not be symmetric
 
+```
 [
     [0, 1, 0, 1],
     [1, 0, 1, 1],
     [0, 1, 0, 1],
     [1, 1, 1, 0]
 ]
+```
 
 Notes:
 - A weighted version would represent the edge weight value in each entry, rather than just 0 or 1 to indicate a connection or not
@@ -85,12 +89,14 @@ A weighted graph can use a value or null.  Multiple edges can represent numbers 
 
 ### Adjacency Lists
 
+```
 [
     [1, 1, 3],
     [0, 0, 2, 2, 3],
     [1, 1, 3],
     [0, 1, 2]
 ]
+```
 
 Weighted could again use pair of values
 multiple edges  ... represented ^
