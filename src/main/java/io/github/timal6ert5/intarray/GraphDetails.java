@@ -42,4 +42,18 @@ public interface GraphDetails {
 	 * @return true if the graph has multiple edges
 	 */
 	public boolean hasMultipleEdges();
+
+	/**
+	 * A simple graph with an edge between every pair of vertices. Alternatively, if
+	 * the graph is simple and connected, then the number of edges will be equal to:
+	 * |E| = nC2
+	 * 
+	 * @return true if the graph is connected
+	 */
+	public boolean isConnected();
+
+	/**
+	 * An empty graph has no edges.
+	 */
+	public boolean isEmpty();
 }

@@ -64,25 +64,29 @@ public class GraphsApp {
 	public GraphDetails getGraphDetails(Path graphFile, GRAPHTYPE graphType) throws Exception {
 		GraphLoader gl = new GraphLoader();
 		switch (graphType) {
-		case ADJACENCY_LIST:
-			return new AdjacencyListGraph(gl.load(graphFile));
-		case ADJACENCY_MATRIX:
-			return new AdjacencyMatrixGraph(gl.load(graphFile));
-		case EDGE_LIST:
-			return new EdgeListGraph(gl.load(graphFile));
-		default:
-			throw new Exception("Unhandled graph type.");
+			case ADJACENCY_LIST:
+				return new AdjacencyListGraph(gl.load(graphFile));
+			case ADJACENCY_MATRIX:
+				return new AdjacencyMatrixGraph(gl.load(graphFile));
+			case EDGE_LIST:
+				return new EdgeListGraph(gl.load(graphFile));
+			default:
+				throw new Exception("Unhandled graph type.");
 		}
 	}
 
 	public void reportGraphDetails(GraphDetails graphDetails) {
 		StringBuilder buf = new StringBuilder();
 
+		buf.append("Order: ").append(graphDetails.getGraphOrder()).append("\n");
+		buf.append("Size: ").append(graphDetails.getGraphSize()).append("\n");
 		buf.append("Directed: ").append(graphDetails.isDirected()).append("\n");
 		buf.append("Weighted: ").append(graphDetails.isWeighted()).append("\n");
 		buf.append("Has Loops: ").append(graphDetails.hasLoops()).append("\n");
 		buf.append("Has Multiple Edges: ").append(graphDetails.hasMultipleEdges()).append("\n");
 		buf.append("Simple: ").append(graphDetails.isSimple()).append("\n");
+		buf.append("Connected: ").append(graphDetails.isConnected()).append("\n");
+		buf.append("Empty: ").append(graphDetails.isEmpty()).append("\n");
 
 		System.out.println(buf.toString());
 	}

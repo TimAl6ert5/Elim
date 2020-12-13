@@ -41,10 +41,12 @@ Graph variations:
 - Directed
 - Loops
 - Multiple edges
+- Disconnected
 
 ### Edge Lists
-Four vertices indexed 0-4 with 7 edges.
+Representing the bridges of Konigsberg with edge list.  Four vertices indexed 0-4 with 7 edges.
 
+```
 [
     [0, 1],
     [0, 1],
@@ -54,28 +56,31 @@ Four vertices indexed 0-4 with 7 edges.
     [1, 3],
     [2, 3]
 ]
+```
 
 Notes:
 - A weighted version would have a third element to the array.
 - A loop (node connected to itself), can be represented as [0, 0] for example
 - Multiple edges can be represented by duplicate entries (as above).
-- Directed interprets the order of the pair as one direction
+- Directed interprets the order of the pair as one direction.
+- Cannot represent a disconnected graph with an isolated vertex, a k1 connected graph, or an empty graph.
 
 ### Adjacency Matrices
-Four vertices represented by 4x4 matrix. Entries are typically 0 (not connected) or 1 (connected).
-A weighted graph may include the weight value for connected, or null for not connected.
-Undirected graph would be symmetric
-Directed graph need not be symmetric
+Representing the bridges of Konigsberg with adjacency matrix.  Four vertices represented by 4x4 matrix. Entries are typically 0 (not connected) or 1 (connected).
 
+```
 [
     [0, 1, 0, 1],
     [1, 0, 1, 1],
     [0, 1, 0, 1],
     [1, 1, 1, 0]
 ]
+```
 
 Notes:
-- A weighted version would represent the edge weight value in each entry, rather than just 0 or 1 to indicate a connection or not
+- Undirected graph would be symmetric
+- Directed graph need not be symmetric
+- A weighted version would represent the edge weight value in each entry, rather than just 0 or 1 to indicate a connection or not.
 
 Problem:
 How to represent multiple and/or weighted edges?
@@ -83,15 +88,19 @@ A weighted graph can use a value or null.  Multiple edges can represent numbers 
 
 
 ### Adjacency Lists
+Representing the bridges of Konigsberg with adjacency list.
 
+```
 [
     [1, 1, 3],
     [0, 0, 2, 2, 3],
     [1, 1, 3],
     [0, 1, 2]
 ]
+```
 
-Weighted could again use pair of values
-multiple edges  ... represented ^
-Directed - represented ^
+Notes:
+- Weighted could again use pair of values
+- multiple edges are easily represented ^
+- Directed graph can be represented by showing a relation in one direction, non-directed graph would show relations in both directions.
 

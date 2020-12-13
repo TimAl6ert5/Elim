@@ -13,3 +13,51 @@
 	- find minimum spanning trees
 - Implement directed graph representations
 - Research Hypergraph representation
+
+
+# BFS
+
+Pseudocode
+
+```
+BFS(startV)   
+   Push startV to frontierQueue
+   Add  startV to discoveredSet
+
+   while ( frontierQueue is not empty )
+      currentV = Pop frontierQueue
+      "Visit" currentV
+      for each vertex adjV adjacent to currentV
+         if ( adjV is not in discoveredSet )
+            Push adjV to frontierQueue
+            Add  adjV to discoveredSet
+```
+
+
+# DFS
+
+Pseudocode
+
+```
+DFS(startV)
+   Push startV to stack
+
+   while ( stack is not empty )
+      currentV = Pop stack
+      "Visit" currentV
+      if ( currentV is not in visitedSet )
+         Add currentV to visitedSet
+         for each vertex adjV adjacent to currentV
+               Push adjV to stack
+```
+
+Recursive
+
+```
+RecursiveDFS(currentV)
+   if ( currentV is not in visitedSet )
+      Add currentV to visitedSet
+      "Visit" currentV
+      for each vertex adjV adjacent to currentV
+         RecursiveDFS(adjV)
+```

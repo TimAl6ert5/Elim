@@ -102,4 +102,31 @@ public class AdjacencyMatrixGraph extends AbstractIntArrayGraph {
 		}
 		return false;
 	}
+
+	/**
+	 * A connected graph in an adjacency matrix is identified by all 1 values in the
+	 * matrix, except for all 0 values on the diagonal.
+	 */
+	@Override
+	public boolean isConnected() {
+		for (int i = 0; i < graph.length; i++) {
+			for (int j = 0; j < graph[i].length; j++) {
+				if (i == j) {
+					if (graph[i][j] != 0) {
+						return false;
+					}
+				} else {
+					if (graph[i][j] == 0) {
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return getGraphSize() == 0;
+	}
 }
